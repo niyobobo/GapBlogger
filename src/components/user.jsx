@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 
 class UserCard extends Component {
   render() {
-    const { avatar_url } = this.props.user;
+    const { user, onShowInfo } = this.props;
     return (
       <div className="card">
-        <img src={avatar_url} alt='' className="card-img-top" />
+        <img src={user.avatar_url} alt='User' className="card-img-top"/>
         <div className="card-body">
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
+          <p className="card-text text-center">
+            {user.login}
           </p>
+          <button type="button" className="btn btn-outline-primary btn-block" onClick={()=>onShowInfo(user.login)}  data-toggle="modal" data-target="#exampleModalCenter">
+            More info...
+          </button>
         </div>
       </div>
     );
